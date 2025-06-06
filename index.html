@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pneus Online - Seu site de confiança para pneus</title>
+    <style>
+        /* RESET DE ESTILOS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* CORPO DA PÁGINA */
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background-color: #212121;
+            color: #fff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo img {
+            width: 120px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        /* BANNER PRINCIPAL */
+        .banner {
+            background: url('banner.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .banner h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .banner p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #f39c12;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e67e22;
+        }
+
+        /* SEÇÃO PRODUTOS */
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .produto {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .produto img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #f4f4f4;
+            margin-bottom: 20px;
+        }
+
+        .produto h3 {
+            font-size: 22px;
+            color: #212121;
+            margin-bottom: 10px;
+        }
+
+        .produto p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .produto .cta-button {
+            background-color: #212121;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .produto .cta-button:hover {
+            background-color: #f39c12;
+        }
+
+        /* SEÇÃO SOBRE */
+        .sobre {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .sobre h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .sobre p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* SEÇÃO CONTATO */
+        .contato {
+            background-color: #212121;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contato h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .contato form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contato form label {
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .contato form input,
+        .contato form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contato form button {
+            background-color: #f39c12;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contato form button:hover {
+            background-color: #e67e22;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer ul li {
+            margin-left: 20px;
+        }
+
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        footer ul li a:hover {
+            color: #f39c12;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo da loja de pneus">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="banner">
+        <h1>Bem-vindo à Pneus Online</h1>
+        <p>Encontre os melhores pneus para seu veículo com os melhores preços.</p>
+        <a href="#produtos" class="cta-button">Confira nossos produtos</a>
+    </section>
+
+    <section id="produtos" class="produtos">
+        <h2>Nossos Pneus</h2>
+        <div class="produto">
+            <img src="pneu1.jpg" alt="Pneu A">
+            <h3>Pneu A</h3>
+            <p>Descrição do pneu A. Ideal para carros urbanos.</p>
+            <p>Preço: R$ 400,00</p>
+            <a href="#comprar" class="cta-button">Comprar</a>
+        </div>
+        <div class="produto">
+            <img src="pneu2.jpg" alt="Pneu B">
+            <h3>Pneu B</h3>
+            <p>Descrição do pneu B. Ideal para carros esportivos.</p>
+            <p>Preço: R$ 600,00</p>
+            <a href="#comprar" class="cta-button">Comprar</a>
+        </div>
+        <div class="produto">
+            <img src="pneu3.jpg" alt="Pneu C">
+            <h3>Pneu C</h3>
+            <p>Descrição do pneu C. Ideal para SUVs e 4x4.</p>
+            <p>Preço: R$ 800,00</p>
+            <a href="#comprar" class="cta-button">Comprar</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <h2>Sobre nós</h2>
+        <p>Somos uma loja especializada em pneus de alta qualidade para todos os tipos de veículos. Nossa missão é fornecer os melhores produtos com o melhor atendimento ao cliente.</p>
+    </section>
+
+    <section id="contato" class="contato">
+        <h2>Entre em contato</h2>
+        <form action="/enviar-mensagem" method="POST">
+            <label for="nome">Seu Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="email">Seu Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="mensagem">Sua Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+            
+            <button type="submit">Enviar Mensagem
